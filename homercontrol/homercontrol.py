@@ -108,7 +108,7 @@ class HomerNuclearCenter:
     def wipe_memory(self):
         confirm = console.input("\n[bold red]Smazat veškerou paměť a restartovat Gateway? (ano/ne): [/bold red]")
         if confirm.lower() == 'ano':
-            os.system(f"rm -rf {AGENTS_DIR}/sessions/* {AGENTS_DIR}/memory/*")
+            os.system(f"rm -rf {OPENCLAW_DIR}/agents/*/sessions/* {OPENCLAW_DIR}/agents/*/agent/memory/*")
             self.manage_service("restart", "2")
             console.print("[bold green]✔ RESET HOTOV.[/bold green]")
             time.sleep(1)
