@@ -1,0 +1,21 @@
+{
+  "version": 1,
+  "lastGood": {
+    "deepseek": "deepseek:default"
+  },
+  "usageStats": {
+    "google:default": {
+      "errorCount": 1,
+      "failureCounts": {
+        "model_not_found": 1
+      },
+      "lastFailureAt": 1776798659341,
+      "cooldownUntil": 1776798689341,
+      "cooldownReason": "model_not_found"
+    },
+    "deepseek:default": {
+      "errorCount": 0,
+      "lastUsed": 1776815865334
+    }
+  }
+}

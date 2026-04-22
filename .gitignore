@@ -1,0 +1,55 @@
+# ==========================================================
+# WHITELIST PRO OPENCLAW GITHUB (HOMER)
+# ==========================================================
+
+# 1. Nejdřív ignoruj úplně všechno
+/*
+
+# 2. POVOL HLAVNÍ KONFIGURACE (Mozeček systému)
+!/config.json
+!/openclaw.json
+!/gitpush.sh
+!/.gitignore
+!/update-check.json
+
+# 3. POVOL AGENTY A JEHO LOGIKU
+!/agents/
+!/agents/**/agent/
+!/agents/**/models.json
+!/agents/**/agent.json
+# (Ignorujeme sessions - to jsou tisíce řádků chatů, které by zahltily GitHub)
+/agents/**/sessions/
+
+# 4. POVOL WORKSPACES (To nejdůležitější pro tvého AI asistenta)
+!/workspaces/
+# Povolit všechny .json, .md a .py soubory (soul, instructions, scripts)
+!/workspaces/**/*.md
+!/workspaces/**/*.json
+!/workspaces/**/*.py
+!/workspaces/**/*.txt
+
+# 5. EXPLICITNÍ ZÁKAZY (Bezpečnost a balast)
+# Nikdy nenahrávat citlivé údaje a přístupy k Signal/zařízením
+/credentials/
+/identity/
+/devices/
+/delivery-queue/
+/memory/
+**/models.json
+*.env*
+
+# Nikdy nenahrávat binární databáze (Git je neumí číst a jsou velké)
+**/*.sqlite*
+**/*.db
+
+# Nikdy nenahrávat dočasné soubory a logy
+/logs/
+/media/
+/qqbot/
+**/__pycache__/
+**/*.pyc
+
+# Nikdy nenahrávat zálohy (máš je na disku, GitHub by byl nepřehledný)
+*.bak*
+*clobbered*
+*backup*

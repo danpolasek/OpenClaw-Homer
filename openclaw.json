@@ -1,0 +1,138 @@
+{
+  "gateway": {
+    "mode": "local",
+    "auth": {
+      "mode": "token",
+      "token": "${OPENCLAW_GATEWAY_TOKEN}"
+    },
+    "trustedProxies": [
+      "192.168.0.0/24"
+    ]
+  },
+  "channels": {
+    "signal": {
+      "enabled": true,
+      "cliPath": "/home/clawbot/.local/bin/signal-cli",
+      "account": "${SIGNAL_ACCOUNT}",
+      "groupPolicy": "allowlist",
+      "startupTimeoutMs": 60000,
+      "httpUrl": "http://127.0.0.1:8080",
+      "autoStart": false,
+      "groupAllowFrom": [
+        "${SIGNAL_ALLOW_1}",
+        "${SIGNAL_ALLOW_2}"
+      ]
+    }
+  },
+  "plugins": {
+    "entries": {
+      "signal": {
+        "enabled": true
+      },
+      "google": {
+        "enabled": true
+      },
+      "deepseek": {
+        "enabled": true
+      },
+      "perplexity": {
+        "enabled": true,
+        "config": {
+          "webSearch": {
+          }
+        }
+      },
+      "anthropic": {
+        "enabled": true
+      }
+    }
+  },
+  "agents": {
+    "defaults": {
+      "model": {
+        "primary": "anthropic/claude-opus-4-7",
+        "fallbacks": [
+          "deepseek/deepseek-chat"
+        ]
+      },
+      "workspace": "/home/clawbot/.openclaw/workspaces/default",
+      "models": {
+        "anthropic/claude-opus-4-7": {}
+      }
+    },
+    "list": [
+      {
+        "id": "homer",
+        "name": "Homer",
+        "workspace": "/home/clawbot/.openclaw/workspaces/homer",
+        "agentDir": "/home/clawbot/.openclaw/agents/homer/agent",
+        "default": true
+      },
+      {
+        "id": "liza",
+        "name": "Líza",
+        "workspace": "/home/clawbot/.openclaw/workspaces/liza",
+        "agentDir": "/home/clawbot/.openclaw/agents/liza/agent",
+        "groupChat": {
+          "mentionPatterns": [
+            "@liza",
+            "@Líza"
+          ]
+        }
+      }
+    ]
+  },
+  "auth": {
+    "profiles": {
+      "google:default": {
+        "provider": "google",
+        "mode": "api_key"
+      },
+      "deepseek:default": {
+        "provider": "deepseek",
+        "mode": "api_key"
+      },
+      "anthropic:default": {
+        "provider": "anthropic",
+        "mode": "api_key"
+      }
+    }
+  },
+  "tools": {
+    "web": {
+      "search": {
+        "provider": "perplexity",
+        "enabled": true,
+        "openaiCodex": {}
+      },
+      "fetch": {
+        "enabled": true
+      }
+    }
+  },
+  "models": {
+    "mode": "merge",
+    "providers": {
+      "deepseek": {
+        "baseUrl": "https://api.deepseek.com",
+        "api": "openai-completions",
+        "models": [
+          {
+            "id": "deepseek-chat",
+            "name": "DeepSeek Chat"
+          }
+        ]
+      }
+    }
+  },
+  "wizard": {
+    "lastRunAt": "2026-04-22T09:30:27.317Z",
+    "lastRunVersion": "2026.4.15",
+    "lastRunCommand": "configure",
+    "lastRunMode": "local"
+  },
+  "meta": {
+    "lastTouchedVersion": "2026.4.15",
+    "lastTouchedAt": "2026-04-22T09:44:30.832Z"
+  }
+}
