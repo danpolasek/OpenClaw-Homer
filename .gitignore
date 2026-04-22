@@ -2,17 +2,17 @@
 # WHITELIST PRO OPENCLAW GITHUB (HOMER)
 # ==========================================================
 
-# 1. Nejdřív ignoruj úplně všechno
+# Nejdřív ignoruj úplně všechno
 /*
 
-# 2. POVOL HLAVNÍ KONFIGURACE (Mozeček systému)
+# POVOL HLAVNÍ KONFIGURACE (Mozeček systému)
 !/config.json
 !/openclaw.json
 !/gitpush.sh
 !/.gitignore
 !/update-check.json
 
-# 3. POVOL AGENTY A JEHO LOGIKU
+# POVOL AGENTY A JEHO LOGIKU
 !/agents/
 !/agents/**/agent/
 !/agents/**/models.json
@@ -20,15 +20,18 @@
 # (Ignorujeme sessions - to jsou tisíce řádků chatů, které by zahltily GitHub)
 /agents/**/sessions/
 
-# 4. POVOL WORKSPACES (To nejdůležitější pro tvého AI asistenta)
+# POVOL WORKSPACES (To nejdůležitější pro tvého AI asistenta)
 !/workspaces/
-# Povolit všechny .json, .md a .py soubory (soul, instructions, scripts)
+# Povolit všechny .json, .md, .sh a .py soubory (soul, instructions, scripts)
 !/workspaces/**/*.md
 !/workspaces/**/*.json
 !/workspaces/**/*.py
 !/workspaces/**/*.txt
 
-# 5. EXPLICITNÍ ZÁKAZY (Bezpečnost a balast)
+# POVOL HOMERCONTROL
+!/homercontrol/
+
+# EXPLICITNÍ ZÁKAZY (Bezpečnost a balast)
 # Nikdy nenahrávat citlivé údaje a přístupy k Signal/zařízením
 /credentials/
 /identity/
