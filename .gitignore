@@ -13,7 +13,7 @@
 !/update-check.json
 
 # POVOL AGENTY A JEHO LOGIKU
-!/agents/
+!/agents/*
 !/agents/**/agent/
 !/agents/**/models.json
 !/agents/**/agent.json
